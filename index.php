@@ -1,4 +1,5 @@
 <?php 
+require "functions.php";
 echo"woaw<br>";
 
 //dataSourceName
@@ -12,14 +13,14 @@ $statement=$pdo->prepare("SELECT * FROM posts");
 $statement->execute();
 
 //dabut bloga ierakstus
-$posts=$statement->fetchAll();
-
-dd($posts);
+$posts=$statement->fetchAll(PDO::FETCH_ASSOC);
 
 //Dump n Die
-function dd($data){
-    echo"<pre>";
-    var_dump($data);
-    echo"</pre>";
-    die();//kill  codoo
-}
+
+//dd($posts);
+
+echo"<ul>";
+foreach($posts as $post){
+    echo "<li>Id: ".$post['id']."<br>Content: ".$post['conntent']."<br><br>"
+;}
+echo"</ul>";
