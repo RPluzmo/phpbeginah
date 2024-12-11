@@ -4,7 +4,7 @@ require "Database.php";
 echo"woaw<br>";
 
 $db= new Database();//objects no database klases
-$posts =$db->query();
+$posts =$db->query("SELECT * FROM posts");
 
 
 //Dump n Die
