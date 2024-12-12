@@ -1,21 +1,27 @@
 <?php 
 
 class Database{
+
+  public $pdo;
+
+  public function  __construct($config){//konstruktors izsauks ja atrod funkciju vienu reizi
+        $dsn="mysql:".http_build_query($config, "",";");
+        //PHP data object
+        $this->pdo=new PDO($dsn);
+        $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);}//(19,2)
+
   //uztaisit metodi query
     public function query($sql){
 
-        //dataSourceName
-        $dsn="mysql:host=localhost;port=3306;user=root;password=;dbname=blog;charset=utf8mb4";
-        //PHP data object
-        $pdo=new PDO($dsn);
+
 
         //Sagatavot vaicajumu
-        $statement=$pdo->prepare($sql);
+        $statement=$this->pdo->prepare($sql);
         //Izpilda vaicjumu
         $statement->execute();
 
         //dabut bloga ierakstus
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement;
     }
 
 };

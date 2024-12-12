@@ -1,10 +1,11 @@
 <?php 
 require "functions.php";
 require "Database.php";
+$config=require("config.php");
 echo"woaw<br>";
 
-$db= new Database();//objects no database klases
-$posts =$db->query("SELECT * FROM posts");
+$db= new Database($config["database"]);//objects no database klases
+$posts =$db->query("SELECT * FROM posts")->fetchAll();
 
 
 //Dump n Die
