@@ -10,3 +10,5 @@ INSERT INTO posts(conntent)
 VALUES ("Pirmais bloga ieraksts"),("Otrais bloga ieraksts");
 
 SELECT * FROM posts;
+
+SELECT * FROM posts WHERE conntent LIKE "Otrais%";
