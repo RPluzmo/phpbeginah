@@ -7,16 +7,22 @@ $config=require("config.php");
 echo"woaw<br>";
 
 $db= new Database($config["database"]);//objects no database klases
-$posts =$db->query("SELECT * FROM posts")->fetchAll();
-
 
 //Dump n Die
 //dd($posts);
 
+
+$sql = "SELECT * FROM posts";
+$params=[];
 if (isset($_GET["search_query"]) && $_GET["search_query"] !=""){
     //mekleshanas logika
-    $posts =$db->query("SELECT * FROM posts WHERE conntent LIKE". ($_GET["search_query"])->fetchAll();
-};
+    //dd("SELECT * FROM posts WHERE content LIKE '%" . $_GET["search_query"] . "%';");// parbaudam vai ir sql.. '% x %'
+    $sql .=" WHERE conntent LIKE '%" . $_GET["search_query"] . "%';";
+}
+$posts= $db->query($sql, $params)->fetchAll();
+//dd($sql);
+
+
 //method POST maina datubazee saturu
 //method GET ir default
 echo "<form >";

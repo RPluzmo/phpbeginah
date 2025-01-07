@@ -11,14 +11,14 @@ class Database{
         $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);}//(19,2)
 
   //uztaisit metodi query
-    public function query($sql){
+    public function query($sql, $params){
 
 
 
         //Sagatavot vaicajumu
         $statement=$this->pdo->prepare($sql);
         //Izpilda vaicjumu
-        $statement->execute();
+        $statement->execute($params);
 
         //dabut bloga ierakstus
         return $statement;
