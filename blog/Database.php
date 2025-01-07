@@ -13,8 +13,6 @@ class Database{
   //uztaisit metodi query
     public function query($sql, $params){
 
-
-
         //Sagatavot vaicajumu
         $statement=$this->pdo->prepare($sql);
         //Izpilda vaicjumu
