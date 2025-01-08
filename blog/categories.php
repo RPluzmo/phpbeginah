@@ -15,14 +15,4 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] !=""){
 $posts= $db->query($sql, $params)->fetchAll();
 //dd($sql);
 
-echo "<form >";
-echo "<input name='search_query' />";
-echo "<button>Meklēt</button>";
-echo "</form>";
-
-
-echo"<ul>";
-foreach($posts as $post){
-    echo "<li>Kategorija: ".$post['category_name']."<br><br>"
-;}
-echo"</ul>";
+require "views/categories.view.php";
