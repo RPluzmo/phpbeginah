@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kategorijas yuhuu</title>
-</head>
-<body>
+<?php 
+    require "components/header.php";
+    require "components/navbar.php"; 
+ ?> 
     
 <form >
 <input name='search_query' value='<?= $_GET["search_query"] ?? "" ?>'/>
@@ -17,7 +13,7 @@
     <?php foreach($posts as $post){ ?>
     <li>Kategorija: <?= $post["category_name"]  ?> </li> 
     <?php } ?>
-</ul>;
+</ul>
 
 </body>
 </html>

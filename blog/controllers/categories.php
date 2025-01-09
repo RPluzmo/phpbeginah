@@ -15,4 +15,5 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] !=""){
 $posts= $db->query($sql, $params)->fetchAll();
 //dd($sql);
 
+$pageTitle = "katgregor";
 require "views/categories.view.php";
