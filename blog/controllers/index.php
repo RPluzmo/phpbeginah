@@ -1,16 +1,8 @@
 <?php 
-
-require "functions.php";
-require "Database.php";
-$config=require("config.php");
-
-echo"woaw<br>";
-
-$db= new Database($config["database"]);//objects no database klases
+//objects no database klases
 //Dump n Die
 //dd($posts);
-$sql = "SELECT * FROM posts";
-$params=[];
+
 
 if (isset($_GET["search_query"]) && $_GET["search_query"] !=""){
     //mekleshanas logika
