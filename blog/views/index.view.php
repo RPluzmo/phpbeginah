@@ -16,7 +16,7 @@
 
 <ul>
     <?php foreach($posts as $post){ ?>
-    <li> <?= $post["conntent"] //<?= ir <?php echo ?> </li> 
+    <li> <?= $post["content"] //<?= ir <?php echo ?> </li> 
     <?php } ?>
 </ul>
 

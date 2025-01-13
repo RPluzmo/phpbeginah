@@ -1,5 +1,6 @@
 <?php 
-
+$sql = "SELECT * FROM categories";
+$params=[];
 
 if (isset($_GET["search_query"]) && $_GET["search_query"] !=""){
     $search_query="%". $_GET["search_query"]. "%";
