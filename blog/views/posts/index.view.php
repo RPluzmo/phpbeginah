@@ -1,8 +1,8 @@
 
 
 <?php
-    require "components/header.php"; 
-    require "components/navbar.php"; 
+    require "views/components/header.php"; 
+    require "views/components/navbar.php"; 
 //formai method POST maina datubazee saturu GET ir default} 
 ?>
 <form >
@@ -16,7 +16,7 @@
 
 <ul>
     <?php foreach($posts as $post){ ?>
-    <li> <?= $post["content"] //<?= ir <?php echo ?> </li> 
+    <li><a href="show?id=<?= $post["id"] ?>"> <?= $post["content"] ?></a></li> 
     <?php } ?>
 </ul>
 

@@ -16,4 +16,4 @@ $posts= $db->query($sql, $params)->fetchAll();
 //dd($sql);
 
 $pageTitle = "Blogi";
-require "views/index.view.php";//views/ ir mape
+require "views/posts/index.view.php";//views/ ir mape
