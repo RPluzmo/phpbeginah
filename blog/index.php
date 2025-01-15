@@ -7,8 +7,7 @@ $config=require("config.php");
 
 $db= new Database($config["database"]);
 
-$sql = "SELECT * FROM posts";
-$params=[];
+
 
 require "router.php";
 

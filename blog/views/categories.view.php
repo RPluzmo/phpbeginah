@@ -11,7 +11,7 @@
 
 <ul>
     <?php foreach($posts as $post){ ?>
-    <li>Kategorija: <?= $post["category_name"]  ?> </li> 
+    <li>Kategorija: <?= htmlspecialchars($post["category_name"])  ?> </li> 
     <?php } ?>
 </ul>
 

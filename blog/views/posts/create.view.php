@@ -4,6 +4,10 @@
 
 
 <form method="POST">
-<label><h1>Izveidot bloga ierakstu!</h1><input name="content" /></label>
+<label>
+    <h1>Izveidot bloga ierakstu!</h1>
+    <input name="content" />
+</label>
+    <button type="submit">Pievieot</button>
 </form>
 
