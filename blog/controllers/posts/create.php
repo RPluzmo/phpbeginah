@@ -1,11 +1,12 @@
 <?php
 $pageTitle = "yeaw";
 
-$errors = [];
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $size = strlen( $_POST["content"]);
+require "Validator.php";
 
-    if (!isset($_POST["content"]) || $size == 0 || $size >50){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $errors = []; 
+
+    if (!isset($_POST["content"]) || strlen($_POST["content"]) == 0 ||strlen($_POST["content"]) == 50 ;
         $errors["content"] = "Saturam jābūt ievadītam, bet ne garākam par 50 rakstzīmēm";
         
     }
