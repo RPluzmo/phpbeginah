@@ -8,7 +8,7 @@
 <form >
     <input name='search_query' value='<?= $_GET["search_query"] ?? "" //null coalescing operator if vieta?>' />
     <button>Meklēt</button>
- </form>
+</form>
 
 <?php if(count($posts) == 0 ) {?>
     <p>NUHUUH</p>
