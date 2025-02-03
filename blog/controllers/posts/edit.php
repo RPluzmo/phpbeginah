@@ -1,5 +1,5 @@
 <?php
-$pageTitle="erro";
+$pageTitle="eddo";
 
 require "Validator.php";
 
@@ -17,14 +17,26 @@ require "Validator.php";
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $errors = []; 
 
+if(!$post){
+    redirectIfNotFound();
+}
+
     if (!Validator::string($_POST["content"], max: 50)){
         $errors["content"] = "Saturam jābūt ievadītam, bet ne garākam par 50 rakstzīmēm"; 
     }
+
+if (!ctype_digit($_POST["id"])){
+    echo "id nava skaitlis...";
+}
+
+
         if (empty($errors)){
-            $sql = "INSERT INTO posts (content) VALUES (:content)";
-            $params = ["content" => $_POST["content"]];
+            $sql = "UPDATE posts SET content = :content WHERE id = :id;";
+            $params = ["content" => $_POST["content"],
+                        "id"=> $_POST["id"]
+        ];
             $db->query($sql, $params);
-            header("Location: /");
+            header("Location: /show?id=" . $_POST["id"]);
             exit();
         }  
 }
