@@ -5,8 +5,8 @@
 <a href="/edit?id=<?= $_GET["id"]?>">Rediģēt?</a>
 
 <form action="/delete" method="POST">
-    <input type="hidden" name="id" value=<?= $post["id"] ?> />
-    <button type="submit">Dzēst ierakstu</button>
+    <input type="hidden" name="id" value="<?= $post["id"] ?>" />
+    <button>Dzēst ierakstu</button>
 </form>
 
 <?php require "views/components/footer.php"; ?>

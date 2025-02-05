@@ -4,7 +4,7 @@
 
 
 <form method="POST">
-    <input type="hidden" name="id" value=<?= $post["id"] ?> />
+    <input type="hidden" name="id" value="<?= $post["id"] ?> "/>
         <label>
             <h1>Rediģeeee!</h1>
             <input name="content" value="<?= $post["content"] ?? 'Nav atrasta vērtība?? like wut..' ?>">
