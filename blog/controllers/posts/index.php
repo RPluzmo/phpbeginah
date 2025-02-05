@@ -1,7 +1,8 @@
 <?php 
 //objects no database klases
 //Dump n Die
-//dd($posts);
+//dd($posts);]
+$pageTitle = "Blogas";
 $sql = "SELECT * FROM posts";
 $params=[];
 
@@ -15,5 +16,5 @@ if (isset($_GET["search_query"]) && $_GET["search_query"] !=""){
 $posts= $db->query($sql, $params)->fetchAll();
 //dd($sql);
 
-$pageTitle = "Blogi";
+
 require "views/posts/index.view.php";//views/ ir mape

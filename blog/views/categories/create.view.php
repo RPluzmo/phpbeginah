@@ -5,11 +5,11 @@
 
 <form method="POST">
 <label>
-    <h1>Izveidot bloga ierakstu!</h1>
-    <input name="content" value="<?= $_POST["content"] ?? "" ?>" />
+    <h1>Izveidot jaunu kategoriju!!</h1>
+    <input name="category_name" value="<?= $_POST["category_name"] ?? "" ?>" />
 </label>
-<?php if(isset($errors["content"])) { ?>
-       <p><?= $errors["content"] ?></p>
+<?php if(isset($errors["category_name"])) { ?>
+       <p><?= $errors["category_name"] ?></p>
      <?php } ?>
     <button type="submit">Pievieot</button>
 </form>

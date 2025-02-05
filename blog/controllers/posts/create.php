@@ -1,5 +1,5 @@
 <?php
-$pageTitle = "yeaw";
+$pageTitle = "Bloga izveide";
 
 require "Validator.php";
 

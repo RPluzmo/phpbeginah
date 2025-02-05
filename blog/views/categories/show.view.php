@@ -1,11 +1,11 @@
 <?php require "views/components/header.php" ?>
 <?php require "views/components/navbar.php" ?>
-<?= htmlspecialchars($post["content"]) ?>
+<?= htmlspecialchars($category["category_name"]) ?>
 
-<a href="/edit?id=<?= $_GET["id"]?>">Rediģēt?</a>
+<a href="/categories/edit?id=<?= $_GET["id"]?>">Rediģēt?</a>
 
-<form action="/delete" method="POST">
-    <input type="hidden" name="id" value="<?= $post["id"] ?>" />
+<form action="/categories/delete" method="POST">
+    <input type="hidden" name="id" value="<?= $category["id"] ?>" />
     <button>Dzēst ierakstu</button>
 </form>
 
