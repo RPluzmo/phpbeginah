@@ -1,5 +1,5 @@
 <?php 
-$pageTitle="Kategorijas";
+$pageTitle="KategorijaSSS";
 
 $sql= "SELECT * FROM categories";
 $categories = $db->query($sql, [])->fetchAll();

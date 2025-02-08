@@ -10,6 +10,9 @@ require "Validator.php";
     $params = ["id" => $_GET["id"]];
     $post = $db->query($sql, $params)->fetch();
     
+    $sql = "SELECT * FROM categories";
+
+    $categories = $db->query($sql, []);
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $errors = []; 
@@ -23,11 +26,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         exit();
     };
 
+    if (!Validator::number($_POST["category_id"])){
+        echo "Kategoriju id nav skaitlis iguess";
+        exit();
+    };
+
     if (empty($errors)){
-        $sql = "UPDATE posts SET content = :content WHERE id = :id;";
+        $sql = "UPDATE posts SET content = :content , category_id = :category_id WHERE id = :id;";
         $params = [
             "content" => $_POST["content"],
-            "id"=> $_POST["id"] 
+            "id"=> $_POST["id"],
+            "category_id"=>$_POST["category_id"]
         ];
         $db->query($sql, $params);
         header("Location: /show?id=" . $_POST["id"]);
