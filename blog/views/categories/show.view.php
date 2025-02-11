@@ -6,7 +6,7 @@
 
 <form action="/categories/delete" method="POST">
     <input type="hidden" name="id" value="<?= $category["id"] ?>" />
-    <button>Dzēst ierakstu</button>
+    <button>Dzēst Kategoriju</button>
 </form>
 
 <?php require "views/components/footer.php"; ?>

@@ -1,14 +1,24 @@
+-- Izveido DB blog
 CREATE DATABASE blog;
 USE blog;
 
+-- Izveido tabulu posts
 CREATE TABLE posts(
 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-conntent VARCHAR(1000)
+content VARCHAR(50),
+category_id VARCHAR(25)
 );
 
-INSERT INTO posts(conntent)
+-- Ievieto post tabulā content kolonā sākuma datus
+INSERT INTO posts(content)
 VALUES ("Pirmais bloga ieraksts"),("Otrais bloga ieraksts");
 
-SELECT * FROM posts;
+-- Izveido tabulu categories
+CREATE TABLE categories(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+category_name VARCHAR(50)
+);
 
-SELECT * FROM posts WHERE conntent LIKE "Otrais%";
+-- Ievieto categories tabulā contont kolonā sākuma datus
+INSERT INTO categories(category_name)
+VALUES ("Svētki"),("Mūzika"),("Sports"); 
