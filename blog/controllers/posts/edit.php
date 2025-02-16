@@ -1,42 +1,43 @@
 <?php
-$pageTitle="eddo";
+$pageTitle = "eddo";
 
 require "Validator.php";
 
-    if (!isset($_GET["id"]) || $_GET["id"] == ""){
-        redirectIfNotFound();}
+if (!isset($_GET["id"]) || $_GET["id"] == "") {
+    redirectIfNotFound();
+}
 
-    $sql = "SELECT * FROM posts WHERE id = :id";
-    $params = ["id" => $_GET["id"]];
-    $post = $db->query($sql, $params)->fetch();
-    
-    $sql = "SELECT * FROM categories";
+$sql = "SELECT * FROM posts WHERE id = :id";
+$params = ["id" => $_GET["id"]];
+$post = $db->query($sql, $params)->fetch();
 
-    $categories = $db->query($sql, []);
+$sql = "SELECT * FROM categories";
+$categories = $db->query($sql, []);
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = []; 
 
-    if (!Validator::string($_POST["content"], max: 50)){
+    if (!Validator::string($_POST["content"], max: 50)) {
         $errors["content"] = "Saturam jābūt ievadītam, bet ne garākam par 50 rakstzīmēm"; 
     }
     
-    if (!Validator::number($_POST["id"])){
-        echo "id nova skaitlis..";
+    if (!Validator::number($_POST["id"])) {
+        echo "ID nav skaitlis..";
         exit();
-    };
+    }
 
-    if (!Validator::number($_POST["category_id"])){
-        echo "Kategoriju id nav skaitlis iguess";
+    // Atļaut tukšu kategoriju
+    if (!empty($_POST["category_id"]) && !Validator::number($_POST["category_id"])) {
+        echo "Kategoriju ID nav skaitlis..";
         exit();
-    };
+    }
 
-    if (empty($errors)){
-        $sql = "UPDATE posts SET content = :content , category_id = :category_id WHERE id = :id;";
+    if (empty($errors)) {
+        $sql = "UPDATE posts SET content = :content, category_id = :category_id WHERE id = :id;";
         $params = [
             "content" => $_POST["content"],
-            "id"=> $_POST["id"],
-            "category_id"=>$_POST["category_id"]
+            "id" => $_POST["id"],
+            "category_id" => empty($_POST["category_id"]) ? null : $_POST["category_id"]
         ];
         $db->query($sql, $params);
         header("Location: /show?id=" . $_POST["id"]);
@@ -45,4 +46,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 require "views/posts/edit.view.php";
-

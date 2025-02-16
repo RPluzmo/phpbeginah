@@ -28,9 +28,6 @@
 <?php if(isset($errors["category_id"])) { ?>
     <p><?= $errors["category_id"] ?></p>
 <?php } ?>
-
-
-
         <button type="submit">Rediģēt ierakstu</button>
 </form>
 
